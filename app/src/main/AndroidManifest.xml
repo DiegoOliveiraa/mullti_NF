@@ -21,8 +21,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.MainActivity"
             android:exported="true" />
+        <activity
+            android:name=".presentation.ReaderActivity"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.ConferenceActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
