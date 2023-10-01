@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" >
-
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
-
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:hardwareAccelerated="true"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Mullti_NF" >
+        android:theme="@style/Theme.Mullti_NF">
+        <activity
+            android:name=".ui.ConferenceActivity"
+            android:exported="true">
+        </activity>
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
-            android:theme="@style/Theme.Mullti_NF" >
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Mullti_NF"
+            tools:ignore="LockedOrientationActivity"
+            tools:replace="screenOrientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,10 +29,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.BaseActivity"
-            android:exported="true" >
-
-        </activity>
+            android:name=".ui.SoonActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
