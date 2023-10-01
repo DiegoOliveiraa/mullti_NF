@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Multi_NF" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:textColorPrimary">@color/standard</item>
+        <item name="android:textColorPrimary">@color/white</item>
         <item name="android:windowBackground">@color/standard</item>
     </style>
 

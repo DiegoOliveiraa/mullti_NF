@@ -1,12 +1,11 @@
-package com.multti.nf.presentation
+package com.multti.nf
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.multti.nf.R
 
-class ConferenceActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_conference)
+        setContentView(R.layout.activity_main)
     }
 }

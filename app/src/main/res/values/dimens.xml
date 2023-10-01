@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- soon size -->
+    <!-- soon size-->
     <dimen name="design_icon_w">100dp</dimen>
 
-    <!-- margins -->
-    <dimen name="design_margin_small">20dp</dimen>
-    <dimen name="design_margin_medium">24dp</dimen>
-    <dimen name="design_margin_big">28dp</dimen>
-
-    <!-- texts -->
+    <!-- texts-->
     <dimen name="design_text_small">20dp</dimen>
     <dimen name="design_text_medium">24dp</dimen>
     <dimen name="design_text_big">28dp</dimen>

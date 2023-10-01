@@ -1,12 +1,4 @@
 <resources>
-    <string name="app_name">Multi NF</string>
-
-    <!-- activity main -->
-    <string name="activity_main_description">Agora você deve realizar a leitura da nota fiscal clicando no botão abaixo.</string>
-    <string name="activity_main_button">Ler QRcode</string>
-
-    <!-- activity conference -->
-    <string name="activity_conference_button_close">Fechar</string>
-    <string name="activity_conference_description">Conferência de informações para pagamento:</string>
-
+    <string name="app_name">mullti_NF</string>
+    <string name="soon_of_industry">logo da empresa</string>
 </resources>
