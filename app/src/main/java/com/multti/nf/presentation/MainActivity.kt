@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         val buttonReadQRCode = findViewById<AppCompatButton>(R.id.button_read_qrcode)
 
         buttonReadQRCode.setOnClickListener {
-            val intent = Intent(this, ScannerActivity::class.java)
+            val intent = Intent(this, ReaderActivity::class.java)
             startActivity(intent)
         }
     }
