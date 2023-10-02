@@ -15,9 +15,6 @@ import com.multti.nf.R
 
 class MainActivity : AppCompatActivity() {
 
-
-
-
     private val barcodeLauncher: ActivityResultLauncher<ScanOptions> by lazy {
         registerForActivityResult(ScanContract()) { result ->
             registerResult(result)
@@ -53,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             ).show()
         } else {
             val intent = Intent(this, ConferenceActivity::class.java)
-            intent.putExtra(QR_CODE, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+            intent.putExtra("baixaria", result.contents)
             startActivity(intent)
         }
     }

@@ -1,29 +1,37 @@
 package com.multti.nf.ui
 
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.multti.nf.R
+import com.multti.nf.databinding.ActivityConferenceBinding
 import com.multti.nf.viewmodels.QRCodeViewModel
-
-const val QR_CODE = "QR_CODE"
 
 class ConferenceActivity : AppCompatActivity() {
 
     private val qrCodeViewModel: QRCodeViewModel by viewModels()
 
-    val nome = intent.getStringExtra(QR_CODE)?: "Valor padrão"
-
+    private var nome: String = "Valor padrão" // Defina um valor padrão inicial
+    private lateinit var binding: ActivityConferenceBinding // Declaração da variável de binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_conference)
 
+        // Inicialize o binding
+        binding = ActivityConferenceBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-//        nome?.let { result ->
-//            val codePartition = qrCodeViewModel.codePartition(result)
-//            Toast.makeText(this, codePartition.toString(), Toast.LENGTH_SHORT).show()
-//        }
+        // Recupere o valor extra "baixaria" do Intent aqui dentro
+        intent.getStringExtra("baixaria")?.let { result ->
+            nome = result // Atribua o valor extra a 'nome' se não for nulo
+        }
+
+        val qrCode = qrCodeViewModel.codePartition(nome)
+        binding.tvCnpj.text = qrCode.first
+        binding.tvChave.text = qrCode.second
+        binding.tvValor.text = qrCode.third
     }
 }
