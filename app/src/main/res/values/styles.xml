@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="InputTextInput">
+        <item name="android:textColorHint">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+        <item name="boxStrokeColor">@android:color/white</item>
+        <item name="colorError">#DD0000</item>
+    </style>
+
+    <style name="MyHintTextAppearance">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ButtonClose" parent="">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/background_button_close</item>
+    </style>
+
+</resources>

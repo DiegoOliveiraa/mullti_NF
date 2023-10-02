@@ -1,37 +1,47 @@
 package com.multti.nf.ui
 
 import android.os.Bundle
-import android.widget.TextView
-import android.widget.Toast
+import android.text.Editable
+import android.text.Editable.Factory.getInstance
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.multti.nf.R
 import com.multti.nf.databinding.ActivityConferenceBinding
+import com.multti.nf.utils.makeFormatCnpj
+import com.multti.nf.utils.makeFormatCurrency
+import com.multti.nf.utils.makeFormatKey
 import com.multti.nf.viewmodels.QRCodeViewModel
+
+const val QR_CODE = "QR_CODE"
 
 class ConferenceActivity : AppCompatActivity() {
 
     private val qrCodeViewModel: QRCodeViewModel by viewModels()
-
-    private var nome: String = "Valor padrão" // Defina um valor padrão inicial
-    private lateinit var binding: ActivityConferenceBinding // Declaração da variável de binding
+    private lateinit var binding: ActivityConferenceBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setUpViews()
+        setUpActions()
+    }
 
-        // Inicialize o binding
+    private fun setUpViews() {
         binding = ActivityConferenceBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        setContentView(binding.root)
 
-        // Recupere o valor extra "baixaria" do Intent aqui dentro
-        intent.getStringExtra("baixaria")?.let { result ->
-            nome = result // Atribua o valor extra a 'nome' se não for nulo
+        intent.getStringExtra(QR_CODE)?.let { result ->
+            qrCodeViewModel.codePartition(result).apply {
+                with(binding) {
+                    editTextCnpj.text = getInstance().newEditable(first.makeFormatCnpj())
+                    editTextKey.text = getInstance().newEditable(second.makeFormatKey())
+                    editTextValue.text = getInstance().newEditable(third.makeFormatCurrency())
+                }
+            }
         }
+    }
 
-        val qrCode = qrCodeViewModel.codePartition(nome)
-        binding.tvCnpj.text = qrCode.first
-        binding.tvChave.text = qrCode.second
-        binding.tvValor.text = qrCode.third
+    private fun setUpActions() {
+        binding.appCompatButton.setOnClickListener {
+            finish()
+        }
     }
 }
