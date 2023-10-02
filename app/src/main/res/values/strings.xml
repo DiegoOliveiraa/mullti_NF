@@ -44,4 +44,9 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="activity_conference_description">Conferência de informações para pagamento:</string>
+    <string name="activity_conference_input_cnpj">CNPJ:</string>
+    <string name="activity_conference_input_value">Valor:</string>
+    <string name="activity_conference_input_key">Chave:</string>
+    <string name="activity_conference_button_close">Fechar</string>
 </resources>

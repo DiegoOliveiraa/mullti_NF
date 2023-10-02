@@ -30,16 +30,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.instrution_qrcode_fragment)
 
         findViewById<ExtendedFloatingActionButton>(R.id.button_read_qrcode).setOnClickListener {
-            registerResult()
+            goToConferenceActivity("33511889000120|32191105570714000825550010059146621133082968|190.00")
+            //registerResult()
         }
 
     }
 
     private fun registerResult() {
         val options =
-            ScanOptions().setDesiredBarcodeFormats(ScanOptions.QR_CODE) // Alterado para QR_CODE
-                .setPrompt("Escaneie um código de barras").setCameraId(0).setBeepEnabled(true)
-                .setOrientationLocked(true).setTorchEnabled(true)
+            ScanOptions().setDesiredBarcodeFormats(ScanOptions.QR_CODE)
+                .setPrompt("")
+                .setCameraId(0)
+                .setBeepEnabled(true)
+                .setOrientationLocked(true)
         getbarcodeLauch.launch(options)
     }
 
@@ -49,9 +52,13 @@ class MainActivity : AppCompatActivity() {
                 this@MainActivity, "Cancelado", Toast.LENGTH_LONG
             ).show()
         } else {
-            val intent = Intent(this, ConferenceActivity::class.java)
-            intent.putExtra("baixaria", result.contents)
-            startActivity(intent)
+            goToConferenceActivity(result.contents)
         }
+    }
+
+    private fun goToConferenceActivity(qrCode: String) {
+        val intent = Intent(this, ConferenceActivity::class.java)
+        intent.putExtra(QR_CODE, qrCode)
+        startActivity(intent)
     }
 }
