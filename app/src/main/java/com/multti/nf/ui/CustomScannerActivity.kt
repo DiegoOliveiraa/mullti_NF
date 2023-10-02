@@ -11,9 +11,6 @@ class CustomScannerActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityCustomScannerBinding.inflate(layoutInflater)
     }
-
-//    val button = binding.appCompatButton
-
     private lateinit var capture: CaptureManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
